@@ -5,6 +5,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible, ejecución normal | pendiente | pendiente |
 
+#### Ejecutar y Localizar el bug
 ```
 Traceback (most recent call last):
   File "C:\Users\GONZALO GABRIEL\Desktop\Diseño y Testing\presupuesto_analisis.py", line 15, in <module>
