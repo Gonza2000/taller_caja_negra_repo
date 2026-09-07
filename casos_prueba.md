@@ -36,6 +36,9 @@ Intereses generados: $-31.74
 Total con intereses: $-34.74
 Cuota por socio (23 socios): $-1.51
 ```
+| ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios: 23, meses: 23 | Mensaje de presupuesto negativo/volver a intentar, ejecución normal | El programa ejecuta el cálculo sin validar | Éxito |
 ## 3. Caso de Prueba 03
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
