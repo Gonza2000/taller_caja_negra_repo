@@ -5,7 +5,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible, ejecución normal | pendiente | pendiente |
 
-#### Ejecutar y Localizar el bug
+#### Ejecutar y Localizar el Bug
 ```
 Traceback (most recent call last):
   File "C:\Users\GONZALO GABRIEL\Desktop\Diseño y Testing\presupuesto_analisis.py", line 15, in <module>
@@ -23,10 +23,12 @@ ZeroDivisionError: float division by zero
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CP-02 | Cálculo de negocio| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 1000, socios:2, meses:2 | intereses: 40, total con intereses:1040, cuota por socio: 520 | pendiente | pendiente |
+#### Ejecutar y Localizar el Bug
 ## Caso de Prueba 03
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CP-03 | No detectado | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 1000, socios:2, meses:2 | intereses: 40, total con intereses:1040, cuota por socio: 520 | pendiente | pendiente |
+#### Ejecutar y Localizar el Bug
 
 
 
