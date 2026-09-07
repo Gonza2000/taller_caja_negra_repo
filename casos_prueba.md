@@ -22,8 +22,20 @@ ZeroDivisionError: float division by zero
 ##  2. Caso de Prueba 02
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CP-02 | Cálculo de negocio| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 1000, socios:2, meses:2 | intereses: 40, total con intereses:1040, cuota por socio: 520 | pendiente | pendiente |
+| CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios:2, meses:2 | intereses: 40, total con intereses:1040, cuota por socio: 520 | pendiente | pendiente |
 #### Ejecutar y Localizar el Bug
+```
+=== Sistema de Análisis de Presupuesto ===
+
+Ingrese el presupuesto total: -3
+Ingrese el número de socios: 23
+Ingrese los meses de inversión: 23
+
+Presupuesto inicial: $-3.00
+Intereses generados: $-31.74
+Total con intereses: $-34.74
+Cuota por socio (23 socios): $-1.51
+```
 ## 3. Caso de Prueba 03
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
