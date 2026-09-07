@@ -10,7 +10,7 @@ un Defecto (Bug) exista en el código fuente de
 presupuesto_analisis.py durante años sin
 llegar a causar nunca un Fallo (Failure)?
 
--Sí, porque el testing solo muestra los defectos, pero no puede ni predecir ni demostrar otros.
+-Sí, porque un defecto es una imperfección presente en el código, mientras que un fallo ocurre durante la ejecución cuando el sistema presenta un comportamiento diferente al esperado.
 
 Desafío Lógico 2
 Imaginen que corrigen todos los bugs y el script
@@ -20,7 +20,7 @@ presupuestos". ¿Qué principio fundamental del
 testing de ISTQB se acaba de violar aunque el
 código esté limpio?
 
--El principio de la validación indica que se asegure que se construya el proyecto correcto y no que sólo funcione correctamente.
+-El principio que se esta violando es el de la falacia de la ausencia de errores, el cual indica que encontrar y corregir defectos no ayuda si el sistema construido es inutilizable y no cumple con las necesidades y expectativas de los usuarios y del negocio.
 
 
 ## Check-list de Autoevaluación Final
