@@ -3,7 +3,7 @@
 
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible, ejecución normal | pendiente | pendiente |
+| CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible/ volver a intentar, ejecución normal. | pendiente | pendiente |
 
 #### Ejecutar y Localizar el Bug
 ```
@@ -18,11 +18,11 @@ ZeroDivisionError: float division by zero
 ```
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible, ejecución normal | ZeroDivisionError: float division by zero en la línea 9 | Failed |
+| CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible, ejecución normal. | ZeroDivisionError: float division by zero en la línea 9 | Failed |
 ##  2. Caso de Prueba 02
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios:2, meses:2 | intereses: 40, total con intereses:1040, cuota por socio: 520 | pendiente | pendiente |
+| CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios: 23, meses: 23 | Mensaje de presupuesto negativo/volver a intentar, ejecución normal | pendiente | pendiente |
 #### Ejecutar y Localizar el Bug
 ```
 === Sistema de Análisis de Presupuesto ===
