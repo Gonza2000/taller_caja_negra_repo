@@ -38,13 +38,28 @@ Cuota por socio (23 socios): $-1.51
 ```
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios: 23, meses: 23 | Mensaje de presupuesto negativo/volver a intentar, ejecución normal | El programa ejecuta el cálculo sin validar | Failed |
+| CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios: 23, meses: 23 | Mensaje de presupuesto negativo/volver a intentar, ejecución normal | Ejecuta la operación con presupuesto negativo, resultado negativo, el programa termina con éxito | Failed |
 ## 3. Caso de Prueba 03
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| CP-03 | No detectado | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 1000, socios:2, meses:2 | intereses: 40, total con intereses:1040, cuota por socio: 520 | pendiente | pendiente |
+| CP-03 | Input vacío | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 0, socios:0, meses:0 | Ingrese un valor para continuar/Volver a intentar, ejecución normal| pendiente | pendiente |
 #### Ejecutar y Localizar el Bug
+```
+=== Sistema de Análisis de Presupuesto ===
 
+Ingrese el presupuesto total:
+Traceback (most recent call last):
+  File "C:\Users\GONZALO GABRIEL\Desktop\Diseño y Testing\presupuesto_analisis.py", line 15, in <module>
+    calcular_presupuesto()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\GONZALO GABRIEL\Desktop\Diseño y Testing\presupuesto_analisis.py", line 3, in calcular_presupuesto
+    presupuesto = float(input("Ingrese el presupuesto total: "))
+ValueError: could not convert string to float: ''
+
+```
+| ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| CP-03 | Input vacío | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 0, socios:0, meses:0 | Ingrese un valor para continuar/Volver a intentar, ejecución normal| ValueError: could not convert string to float: '' | Failed |
 
 
 
