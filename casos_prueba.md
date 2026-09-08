@@ -6,6 +6,7 @@
 | CP-01 | Comportamiento con 0 socios | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 100, socios: 0, meses: 10 | Mensaje de división no disponible/ volver a intentar, ejecución normal. | pendiente | pendiente |
 
 #### Ejecutar y Localizar el Bug
+Log de Consola:
 ```
 Traceback (most recent call last):
   File "C:\Users\GONZALO GABRIEL\Desktop\Diseño y Testing\presupuesto_analisis.py", line 15, in <module>
@@ -24,6 +25,7 @@ ZeroDivisionError: float division by zero
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios: 23, meses: 23 | Mensaje de presupuesto negativo/volver a intentar, ejecución normal | pendiente | pendiente |
 #### Ejecutar y Localizar el Bug
+Log de Consola:
 ```
 === Sistema de Análisis de Presupuesto ===
 
@@ -44,6 +46,7 @@ Cuota por socio (23 socios): $-1.51
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | CP-03 | Input vacío | Script iniciado en terminal / listo para ingreso de datos | presupuesto total: 0, socios:0, meses:0 | Ingrese un valor para continuar/Volver a intentar, ejecución normal| pendiente | pendiente |
 #### Ejecutar y Localizar el Bug
+Log de Consola:
 ```
 === Sistema de Análisis de Presupuesto ===
 
