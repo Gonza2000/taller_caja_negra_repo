@@ -1,4 +1,8 @@
-## Taller en Clase sobre Caja Negra
+## Universidad Internacional del Ecuador
+## Taller en Clase - Caja Negra
+#### 7 de Septiembre del 2026
+## Docente
+#### Pablo Robayo
 ## Integrantes 
 #### Gonzalo Cardenas - Documentacion y GitHub
 #### Gabriel Vasquez - Tester Principal
