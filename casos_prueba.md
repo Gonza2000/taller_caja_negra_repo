@@ -1,3 +1,9 @@
+## Actividad 1 - Mapa conceptual
+<img width="1805" height="1000" alt="Caja Negra MC" src="https://github.com/user-attachments/assets/817d5194-b01f-43d4-824d-e92c4abac651" />
+
+
+## Actividad 3 y 4 - Casos de Prueba.
+
 ## 1. Caso de Prueba 01
 
 
