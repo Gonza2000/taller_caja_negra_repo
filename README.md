@@ -4,8 +4,8 @@
 ## Docente
 #### Pablo Robayo
 ## Integrantes 
-#### Gonzalo Cardenas - Documentación y GitHub
-#### Gabriel Vasquez - Tester Principal
+#### Gonzalo Cárdenas - Documentación y GitHub
+#### Gabriel Vásquez - Tester Principal
 #### Daniel Cadena - Desarrollador / Analista 
 
 Desafío Lógico 1
