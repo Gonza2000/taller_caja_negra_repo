@@ -54,7 +54,7 @@ El código no valida que presupuesto no puede ser negativo y altera el resultado
 | CP-02 | Comportamiento con presupuesto negativo| Script iniciado en terminal / listo para ingreso de datos | presupuesto total: -3, socios: 23, meses: 23 | Mensaje de presupuesto negativo/volver a intentar, ejecución normal | Ejecuta la operación con presupuesto negativo, resultado negativo, el programa termina con éxito | Failed |
 
 ## 3. Caso de Prueba 03
-Probamos la partición válida con cálculo de intereses en un periodo estándar de 2 meses
+Probamos la partición válida  cálculo de intereses con valores normales
 
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
