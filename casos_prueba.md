@@ -23,7 +23,7 @@ Traceback (most recent call last):
                       ~~~~~~^~~~~~~~
 ZeroDivisionError: float division by zero
 ```
-## Reporte del Defecto
+#### Reporte del Defecto
 El código nunca valida socios es igual a 0 antes de dividir.
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -47,7 +47,7 @@ Intereses generados: $-31.74
 Total con intereses: $-34.74
 Cuota por socio (23 socios): $-1.51
 ```
-## Reporte del Defecto
+#### Reporte del Defecto
 El código no valida que presupuesto no puede ser negativo y altera el resultado.
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -72,7 +72,7 @@ Traceback (most recent call last):
 ValueError: could not convert string to float: ''
 
 ```
-## Reporte del Defecto
+#### Reporte del Defecto
 Falta de control de validación de cadenas vacías antes de aplicar el casteo de tipos float() o int()
 | ID | Descripción | Precondición | Entrada | Esperado | Real | Estado |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
