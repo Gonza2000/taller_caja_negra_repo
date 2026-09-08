@@ -11,6 +11,7 @@ presupuesto_analisis.py durante años sin
 llegar a causar nunca un Fallo (Failure)?
 
 -Sí, porque un defecto es una imperfección presente en el código, mientras que un fallo ocurre durante la ejecución cuando el sistema presenta un comportamiento diferente al esperado.
+ Además, un bug puede permanecer oculto indefinidamente si los usuarios siempre ingresan datos ideales que no detonen el fallo.
 
 Desafío Lógico 2
 Imaginen que corrigen todos los bugs y el script
