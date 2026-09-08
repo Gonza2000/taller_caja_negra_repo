@@ -4,7 +4,7 @@
 ## Docente
 #### Pablo Robayo
 ## Integrantes 
-#### Gonzalo Cardenas - Documentacion y GitHub
+#### Gonzalo Cardenas - Documentación y GitHub
 #### Gabriel Vasquez - Tester Principal
 #### Daniel Cadena - Desarrollador / Analista 
 
