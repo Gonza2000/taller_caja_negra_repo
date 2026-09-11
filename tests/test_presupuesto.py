@@ -6,5 +6,7 @@ def test_calcular_presupuesto(monkeypatch):
     entradas = ["1000", "2", "2"]
     monkeypatch.setattr("builtins.input", lambda _: entradas.pop(0))
 
-    # Verifica que la función se ejecute sin errores
-    assert calcular_presupuesto() is None
+    # SABOTAJE (FALLO INTENCIONAL):
+    # Afirmamos que la función devuelve "Cálculo exitoso", pero devuelve None.
+    # Esto causa un AssertionError que hace fallar a PyTest y pone el pipeline en ROJO (FAIL).
+    assert calcular_presupuesto() == "Cálculo exitoso"
