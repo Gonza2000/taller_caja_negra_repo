@@ -96,19 +96,6 @@ flowchart LR
 
 ---
 
-### SDLC vs. STLC
-
-Son dos perspectivas complementarias:
-
-| Dimensión | SDLC (Software Development Life Cycle) | STLC (Software Testing Life Cycle) |
-| :--- | :--- | :--- |
-| **Enfoque Principal** | Creación y construcción del producto de software. | Validación, verificación y aseguramiento de la calidad del producto. |
-| **Objetivo** | Entregar un sistema de software funcional que resuelva una necesidad del usuario. | Detectar defectos, evaluar riesgos y certificar que el sistema cumple los requisitos. |
-| **Inicio** | Inicia desde la concepción del proyecto con la toma de requerimientos de negocio. | Inicia en cuanto los requerimientos están disponibles para ser revisados por QA. |
-| **Fases Clave** | Requisitos -> Diseño -> Codificación -> Pruebas -> Despliegue -> Mantenimiento. | Análisis de requisitos -> Planificación -> Diseño -> Entorno -> Ejecución -> Cierre. |
-| **Responsables** | Analistas, Arquitectos de Software, Desarrolladores. | Ingenieros de Calidad (QA), Testers, Automatizadores (SDET). |
-| **Sincronía** | Define las etapas evolutivas de construcción. | **Corre en paralelo** dentro de cada etapa del SDLC para verificar el entregable correspondiente. |
-
 
 ---
 
