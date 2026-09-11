@@ -27,4 +27,4 @@ jobs:
 
       - name: Ejecutar pruebas automatizadas con PyTest
         run: |
-          pytest -v
+          python -m pytest -v

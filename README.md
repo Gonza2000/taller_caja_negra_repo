@@ -96,7 +96,7 @@ jobs:
 
       - name: Ejecutar pruebas automatizadas con PyTest
         run: |
-          pytest -v
+          python -m pytest -v
 ```
 
 ### Desglose Línea por Línea de la Receta:
@@ -110,7 +110,7 @@ jobs:
 | `uses: actions/checkout@v4` | Acción comunitaria oficial de GitHub. | Clona el código fuente del repositorio dentro del directorio de trabajo del runner para que esté accesible. |
 | `uses: actions/setup-python@v5` | Acción para aprovisionamiento de Python. | Instala la versión de Python 3.11 y habilita el almacenamiento en caché de los paquetes `pip` para acelerar futuras ejecuciones. |
 | `run: python -m pip install...` | Ejecución de comandos en shell Bash. | Actualiza el gestor de paquetes `pip` e instala las dependencias declaradas en `requirements.txt` (`pytest>=8.0.0`). |
-| `run: pytest -v` | Invocación del framework de pruebas. | Ejecuta todos los archivos de prueba que coincidan con el patrón `test_*.py` en modo verboso (`-v`). Si todas las aserciones pasan, retorna código de salida `0` (éxito). Si al menos una falla, retorna código distinto de cero (`1`), deteniendo el job y marcando el pipeline en rojo. |
+| `run: python -m pytest -v` | Invocación del framework de pruebas. | Ejecuta todos los archivos de prueba que coincidan con el patrón `test_*.py` en modo verboso (`-v`) asegurando que el directorio raíz forme parte de `sys.path`. Si todas las aserciones pasan, retorna código de salida `0` (éxito). Si al menos una falla, retorna código distinto de cero (`1`), deteniendo el job y marcando el pipeline en rojo. |
 
 ---
 
