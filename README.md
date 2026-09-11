@@ -54,40 +54,49 @@ Auditoría previa a la entrega final del taller:
 
 ##  Conceptos Clave 
 
-### 6.1. Software Testing Life Cycle (STLC)
-El **STLC (Ciclo de Vida de las Pruebas de Software)** es un proceso formal, sistemático y estructurado de actividades de aseguramiento de calidad diseñado para garantizar que el producto software satisfaga los requisitos especificados y esté libre de defectos críticos. Se compone de 6 fases secuenciales e interconectadas:
+### Software Development Life Cycle (SDLC)
+El **SDLC** es el proceso estructurado que guía el desarrollo y construcción de un software desde su concepción hasta su retiro. Se compone de 6 fases:
 
 ```mermaid
 flowchart LR
-    A["1. Análisis de Requisitos"] --> B["2. Planificación de Pruebas"]
-    B --> C["3. Diseño de Casos"]
-    C --> D["4. Configuración del Entorno"]
-    D --> E["5. Ejecución de Pruebas"]
-    E --> F["6. Cierre del Ciclo"]
+    A["1. Requisitos"] --> B["2. Diseño"]
+    B --> C["3. Codificación"]
+    C --> D["4. Pruebas"]
+    D --> E["5. Despliegue"]
+    E --> F["6. Mantenimiento"]
 ```
 
-1. **Análisis de Requisitos (Requirement Analysis):**
-   - El equipo de QA examina las especificaciones funcionales y no funcionales para identificar qué debe probarse y determinar si los requisitos son verificables y medibles.
-   - *Entregable:* Matriz de Trazabilidad de Requisitos (RTM) y lista de dudas / ambigüedades.
-2. **Planificación de Pruebas (Test Planning):**
-   - El líder de QA define la estrategia global de pruebas, alcance, estimación de esfuerzo, recursos requeridos, herramientas (como PyTest y GitHub Actions) y cronograma.
-   - *Entregable:* Plan de Pruebas (Test Plan) y análisis de riesgos.
-3. **Diseño y Desarrollo de Casos de Prueba (Test Case Development):**
-   - Se crean casos de prueba detallados con sus identificadores (ej. CP-01, CP-02, CP-03), precondiciones, datos de entrada, pasos detallados y resultados esperados. Se preparan también los scripts automatizados.
-   - *Entregable:* Casos de prueba documentados y scripts de prueba automatizados.
-4. **Configuración del Entorno de Pruebas (Test Environment Setup):**
-   - Se aprovisiona el hardware, software, dependencias y redes donde se ejecutarán las pruebas. En CI/CD moderno, esta fase se virtualiza mediante runners automáticos (ej. Ubuntu en GitHub Actions).
-   - *Entregable:* Entorno listo con datos de prueba cargados.
-5. **Ejecución de Pruebas (Test Execution):**
-   - Se ejecutan los casos de prueba manuales y automatizados. Los resultados obtenidos se comparan con los esperados. Las discrepancias se reportan como defectos (bugs).
-   - *Entregable:* Registro de ejecución y reportes de defectos.
-6. **Cierre del Ciclo de Pruebas (Test Cycle Closure):**
-   - Tras validar las correcciones y cumplir los criterios de salida, el equipo evalúa la cobertura, métricas de defectos, lecciones aprendidas y firma formalmente el cierre de la versión.
-   - *Entregable:* Reporte de Cierre de Pruebas (Test Summary Report).
+1. **Análisis de Requisitos:** Recopilación y definición de necesidades del cliente y del negocio.
+2. **Diseño:** Modelado de la arquitectura del sistema, interfaces y bases de datos.
+3. **Desarrollo / Codificación:** Escritura y compilación del código fuente.
+4. **Pruebas:** Verificación del funcionamiento del sistema frente a los requisitos.
+5. **Despliegue:** Puesta en producción y entrega del producto al usuario final.
+6. **Mantenimiento:** Corrección de incidencias operativas y soporte continuo.
 
 ---
 
-### 6.2. SDLC vs. STLC
+### Software Testing Life Cycle (STLC)
+El **STLC** es el proceso sistemático de pruebas enfocado en la validación y aseguramiento de calidad del software. Se compone de 6 fases:
+
+```mermaid
+flowchart LR
+    A["1. Requisitos"] --> B["2. Planificación"]
+    B --> C["3. Diseño"]
+    C --> D["4. Entorno"]
+    D --> E["5. Ejecución"]
+    E --> F["6. Cierre"]
+```
+
+1. **Análisis de Requisitos:** Identificación de qué probar y evaluación de la testabilidad.
+2. **Planificación de Pruebas:** Definición del alcance, recursos, cronograma y herramientas.
+3. **Diseño de Casos:** Elaboración de casos de prueba (entradas, pasos y resultados esperados).
+4. **Configuración del Entorno:** Preparación del ambiente de pruebas (runners, dependencias y datos).
+5. **Ejecución de Pruebas:** Corrida de pruebas (manuales/automáticas) y reporte de defectos.
+6. **Cierre del Ciclo:** Evaluación de métricas de calidad y reporte de cierre.
+
+---
+
+### SDLC vs. STLC
 
 Son dos perspectivas complementarias:
 
@@ -103,7 +112,7 @@ Son dos perspectivas complementarias:
 
 ---
 
-### 6.3. Shift-Left Testing (Pruebas Tempranas)
+### Shift-Left Testing (Pruebas Tempranas)
 
 El principio de **Shift-Left Testing** es una filosofía de ingeniería de calidad que postula mover las actividades de prueba lo más hacia la "izquierda" posible en la línea de tiempo del ciclo de desarrollo (es decir, hacia las fases iniciales de requisitos, diseño y codificación).
 
@@ -116,9 +125,9 @@ Requisitos  ->  Diseño  ->  Codificación (CI)  ->  Staging  ->  Producción
   Estática              PyTest Automáticas
 ```
 
+---
 
-
-###  Criterios de Entrada y Salida (Entry & Exit Criteria)
+### Criterios de Entrada y Salida (Entry & Exit Criteria)
 
 Para evitar la ambigüedad y garantizar la rigurosidad en los procesos de calidad, el estándar ISTQB define dos puntos de control indispensables:
 

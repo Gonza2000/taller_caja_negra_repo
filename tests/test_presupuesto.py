@@ -1,74 +1,64 @@
 import pytest
-from presupuesto_analisis import calcular_metricas_presupuesto
+from presupuesto_analisis import calcular_presupuesto
 
 
-def test_calculo_exitoso_cp03():
+def test_calculo_presupuesto_ejecucion(monkeypatch, capsys):
     """
-    CP-03: Cálculo de intereses y cuota por socio con valores válidos.
-    Entrada: presupuesto=1000, socios=2, meses=2
-    Esperado:
-      - Intereses generados: $40.00 (tasa 2% mensual lineal: 1000 * 0.02 * 2)
-      - Total con intereses: $1040.00
-      - Cuota por socio: $520.00
+    Prueba de ejecución del script original con valores estándar (1000, 2, 2).
+    Verifica la salida generada en consola por la función calcular_presupuesto.
     """
-    resultado = calcular_metricas_presupuesto(presupuesto=1000, socios=2, meses=2)
-    assert resultado["presupuesto"] == 1000.0
-    assert resultado["intereses"] == 40.00
-    assert resultado["total"] == 1040.00
-    assert resultado["cuota_por_socio"] == 520.00
+    entradas = iter(["1000", "2", "2"])
+    monkeypatch.setattr("builtins.input", lambda _: next(entradas))
+
+    calcular_presupuesto()
+
+    salida = capsys.readouterr().out
+    assert "Presupuesto inicial: $1000.00" in salida
+    assert "Intereses generados: $80.00" in salida
+    assert "Total con intereses: $1080.00" in salida
+    assert "Cuota por socio (2 socios): $540.00" in salida
 
 
-def test_socios_cero_invalido_cp01():
+def test_calculo_un_socio(monkeypatch, capsys):
     """
-    CP-01: Validación de límite/invalidez con socios = 0.
-    Previene ZeroDivisionError lanzando ValueError controlado.
-    Entrada: presupuesto=100, socios=0, meses=10
+    Prueba de ejecución con 1 solo socio y 1 mes.
+    Intereses: 5000 * 0.02 * (1 ** 2) = 100.00
+    Total: 5100.00
+    Cuota: 5100.00
     """
-    with pytest.raises(ValueError, match="número de socios debe ser mayor a cero"):
-        calcular_metricas_presupuesto(presupuesto=100, socios=0, meses=10)
+    entradas = iter(["5000", "1", "1"])
+    monkeypatch.setattr("builtins.input", lambda _: next(entradas))
+
+    calcular_presupuesto()
+
+    salida = capsys.readouterr().out
+    assert "Presupuesto inicial: $5000.00" in salida
+    assert "Intereses generados: $100.00" in salida
+    assert "Total con intereses: $5100.00" in salida
+    assert "Cuota por socio (1 socios): $5100.00" in salida
 
 
-def test_presupuesto_negativo_invalido_cp02():
+def test_defecto_cp01_division_cero(monkeypatch):
     """
-    CP-02: Validación de clase de equivalencia inválida (presupuesto < 0).
-    Previene cálculos incoherentes lanzando ValueError controlado.
-    Entrada: presupuesto=-3, socios=23, meses=23
+    CP-01: Demuestra el fallo de división por cero cuando socios = 0.
+    El script original no valida socios <= 0 y detona ZeroDivisionError.
     """
-    with pytest.raises(ValueError, match="El presupuesto no puede ser negativo"):
-        calcular_metricas_presupuesto(presupuesto=-3, socios=23, meses=23)
+    entradas = iter(["100", "0", "10"])
+    monkeypatch.setattr("builtins.input", lambda _: next(entradas))
+
+    with pytest.raises(ZeroDivisionError):
+        calcular_presupuesto()
 
 
-def test_meses_invalido_cero_o_negativo():
+def test_defecto_cp02_presupuesto_negativo(monkeypatch, capsys):
     """
-    Validación de regla de negocio: la inversión debe durar al menos 1 mes.
+    CP-02: Demuestra la falta de validación ante presupuesto negativo.
+    El script original no bloquea entradas negativas y procesa -3.
     """
-    with pytest.raises(ValueError, match="número de meses debe ser mayor a cero"):
-        calcular_metricas_presupuesto(presupuesto=500, socios=2, meses=0)
+    entradas = iter(["-3", "23", "23"])
+    monkeypatch.setattr("builtins.input", lambda _: next(entradas))
 
-    with pytest.raises(ValueError, match="número de meses debe ser mayor a cero"):
-        calcular_metricas_presupuesto(presupuesto=500, socios=2, meses=-5)
+    calcular_presupuesto()
 
-
-def test_caso_borde_un_socio():
-    """
-    Caso de borde: Inversión individual (1 socio) durante 12 meses.
-    Entrada: presupuesto=5000, socios=1, meses=12
-    Intereses: 5000 * 0.02 * 12 = 1200.00
-    Total: 6200.00
-    Cuota por socio: 6200.00
-    """
-    resultado = calcular_metricas_presupuesto(presupuesto=5000, socios=1, meses=12)
-    assert resultado["intereses"] == 1200.00
-    assert resultado["total"] == 6200.00
-    assert resultado["cuota_por_socio"] == 6200.00
-
-
-def test_presupuesto_cero_limite_valido():
-    """
-    Caso límite válido: presupuesto inicial de 0.
-    """
-    resultado = calcular_metricas_presupuesto(presupuesto=0, socios=4, meses=6)
-    assert resultado["presupuesto"] == 0.0
-    assert resultado["intereses"] == 0.0
-    assert resultado["total"] == 0.0
-    assert resultado["cuota_por_socio"] == 0.0
+    salida = capsys.readouterr().out
+    assert "Presupuesto inicial: $-3.00" in salida
