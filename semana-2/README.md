@@ -92,43 +92,13 @@ jobs:
           python -m pytest -v
 ```
 
-### Explicación Técnica de la Receta YAML:
-1. **`on: [push, pull_request]` (Triggers):** Disparadores basados en eventos. Cada vez que se envía un commit o PR hacia `main`, GitHub inicializa el flujo.
-2. **`runs-on: ubuntu-latest` (Runner):** GitHub aprovisiona una máquina virtual limpia e independiente en la nube con Linux Ubuntu Server.
-3. **`actions/checkout@v4`:** Clona el código fuente del repositorio dentro del runner para hacerlo accesible.
-4. **`actions/setup-python@v5`:** Configura el runtime oficial de Python 3.11 y optimiza la caché de paquetes de `pip`.
-5. **`pip install -r requirements.txt`:** Instala el framework de pruebas `pytest>=8.0.0`.
-6. **`python -m pytest -v`:** Ejecuta la suite de pruebas. Si todas las aserciones pasan, retorna código de salida `0` (**Luz Verde ✔️ / PASS**). Si al menos una prueba falla, retorna código `1`, abortando el pipeline y marcando el commit en **Rojo ❌ / FAIL**.
+---
 
-### Evidencia de Ejecuciones en GitHub Actions:
-* **Corrida ROJA por Sabotaje (FAIL):** [Run #34635779360](https://github.com/Gonza2000/taller_caja_negra_repo/actions/runs/34635779360) (Fallo intencional provocado al inyectar 0 socios / aserción inválida).
-* **Corrida VERDE Funcional (PASS):** [Run #34635303104](https://github.com/Gonza2000/taller_caja_negra_repo/actions/runs/34635303104) (Ejecución limpia con exit code 0).
+
 
 ---
 
-## C2. PyTest & Cobertura de Pruebas (`tests/test_presupuesto.py`)
-
-La suite de pruebas automatizadas en [`tests/test_presupuesto.py`](./tests/test_presupuesto.py) fue diseñada para validar los 4 escenarios críticos exigidos por la rúbrica, empleando aserciones directas y limpias:
-
-| Tipo de Prueba | Función de Test | Escenario Evaluado | Aserción Limpia (`assert`) |
-| :--- | :--- | :--- | :--- |
-| **Caso Feliz** | `test_caso_feliz` | Presupuesto: 1000, Socios: 2, Meses: 2 | `assert "Total con intereses: $1080.00" in salida` |
-| **Caso Límite** | `test_caso_limite` | Presupuesto: 5000, Socios: 1, Meses: 1 | `assert "Cuota por socio (1 socios): $5100.00" in salida` |
-| **División por Cero** | `test_division_por_cero` | Presupuesto: 100, Socios: 0, Meses: 10 (CP-01) | `pytest.raises(ZeroDivisionError)` |
-| **Inputs Negativos** | `test_inputs_negativos` | Presupuesto: -3, Socios: 23, Meses: 23 (CP-02) | `assert "Presupuesto inicial: $-3.00" in salida` |
-
-```bash
-$ python -m pytest -v
-tests/test_presupuesto.py::test_caso_feliz PASSED                        [ 25%]
-tests/test_presupuesto.py::test_caso_limite PASSED                       [ 50%]
-tests/test_presupuesto.py::test_division_por_cero PASSED                 [ 75%]
-tests/test_presupuesto.py::test_inputs_negativos PASSED                  [100%]
-============================== 4 passed in 0.03s ==============================
-```
-
----
-
-## C3. Mapeo del Proyecto con el STLC (ISTQB / ISO 29119) y Criterios E/S
+## C2. Mapeo del Proyecto con el STLC (ISTQB / ISO 29119) y Criterios E/S
 
 El proceso de pruebas aplicado en este repositorio se mapea rigurosamente contra las 6 fases del **Software Testing Life Cycle (STLC)** según los estándares ISTQB e ISO/IEC/IEEE 29119:
 
@@ -170,28 +140,3 @@ flowchart LR
 
 ---
 
-## C4. Análisis Metacognitivo: Respuestas Técnicas
-
-### Pregunta 1: Ejecución de Pruebas en la Nube (GitHub Actions) vs. Ejecución Local
-* **Ejecución Local:** Se ejecuta en la máquina del desarrollador bajo su propio sistema operativo, rutas de disco absolutas y variables de entorno particulares. Si bien permite una depuración interactiva rápida, padece del clásico sesgo *"en mi máquina sí funciona"*, ya que puede ocultar dependencias no instaladas o diferencias de plataforma.
-* **Ejecución en la Nube (GitHub Actions):** Se ejecuta en un contenedor o runner virtualizado efímero y estandarizado (Ubuntu Linux). Garantiza la **reproducibilidad absoluta**: cada ejecución se inicia en un entorno limpio desde cero, asegurando que el software funciona independientemente de la máquina del programador y protegiendo la rama `main` de código roto antes de cualquier integración.
-
-### Pregunta 2: Significado Técnico y Conceptual de la "Luz Verde" (Green Pipeline)
-* **Técnicamente:** La luz verde significa que el proceso ejecutado en el runner finalizó con **código de salida `0` (`exit code 0`)**, lo cual certifica que todas las aserciones (`assert`) programadas en la suite de PyTest se evaluaron como verdaderas y no hubo excepciones fatales no controladas.
-* **Conceptualmente (según ISTQB):** Representa el principio fundamental de que **"Las pruebas muestran la presencia de defectos, no su ausencia"** y la **"Falacia de la ausencia de errores"**. Una luz verde **NO** significa que el software esté libre de errores al 100%; únicamente demuestra que el código satisface con éxito los casos de prueba específicos que fueron diseñados y ejecutados. Si existen requerimientos mal entendidos o escenarios no cubiertos, el pipeline seguirá verde aunque el producto falle frente a las expectativas del cliente.
-
-### Pregunta 3: Gestión de Criterios de Salida (*Exit Criteria*) bajo Presión de Tiempo
-* **El Dilema:** En escenarios reales de entrega urgente (*deadlines* agresivos), existe la tentación de "relajar" o ignorar los criterios de salida para liberar el producto rápidamente.
-* **La Solución Profesional (Testing Basado en Riesgos - *Risk-Based Testing*):**
-  1. **Nunca eliminar criterios a ciegas:** Se deben preservar intactos los criterios vinculados a defectos bloqueantes, pérdida de datos o brechas de seguridad.
-  2. **Negociación y Aceptación Formal de Riesgos:** QA y Desarrollo presentan a los *stakeholders* (Product Owner / Cliente) la matriz de riesgos residuales de los casos no probados o con defectos menores abiertos.
-  3. **Deuda Técnica Documentada:** Cualquier criterio de salida flexibilizado debe registrarse formalmente como una deuda técnica priorizada para la siguiente iteración, garantizando trazabilidad y mitigación inmediata post-lanzamiento.
-
----
-
-## C5. Estructura del Repositorio y Roles de Exposición
-
-### División de Roles para la Presentación:
-* **Git Lead (Gonzalo Cárdenas):** Demostración en vivo de la pestaña **Actions** en GitHub, estructura de ramas y commits, y explicación técnica de la receta YAML (`ci_pipeline.yml`).
-* **Tester Principal (Gabriel Vásquez):** Explicación y ejecución de la suite de pruebas en **PyTest**, cobertura de casos (feliz, límites, negativos, división por cero) y demostración del sabotaje.
-* **Desarrollador / Dev (Daniel Cadena):** Explicación del script `presupuesto_analisis.py`, análisis de defectos (CP-01, CP-02, CP-03) y justificación de los Criterios de Entrada y Salida bajo ISTQB.
