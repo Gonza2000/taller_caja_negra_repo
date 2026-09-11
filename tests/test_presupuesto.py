@@ -8,7 +8,7 @@ def test_caso_feliz(monkeypatch, capsys):
     Entrada: presupuesto=1000, socios=2, meses=2.
     Verifica que el cálculo y la salida en consola sean correctos.
     """
-    entradas = ["1000", "2", "2"]
+    entradas = ["1000", "0", "2"]
     monkeypatch.setattr("builtins.input", lambda _: entradas.pop(0))
 
     calcular_presupuesto()
