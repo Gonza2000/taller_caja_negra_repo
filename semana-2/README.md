@@ -51,13 +51,13 @@ Auditoría previa a la entrega final del taller:
 
 # Semana 2: Automatización de Pruebas con PyTest y GitHub Actions (CI/CD)
 
-> 📁 **Organización del Repositorio:** Los entregables y scripts de esta semana se encuentran estructurados en la raíz y replicados de forma modular en la carpeta [`/semana-2/`](./semana-2/).
+> 📁 **Organización del Repositorio:** Todos los entregables, scripts y pruebas de esta semana se encuentran organizados exclusivamente dentro de la carpeta [`/semana-2/`](./).
 
 ---
 
 ## C1. Demostración CI/CD: Análisis del Pipeline (`.github/workflows/ci_pipeline.yml`)
 
-El pipeline de Integración Continua se encuentra configurado en el archivo [`.github/workflows/ci_pipeline.yml`](./.github/workflows/ci_pipeline.yml) y opera de forma desatendida ante eventos de Git:
+El pipeline de Integración Continua se encuentra configurado en el archivo [`.github/workflows/ci_pipeline.yml`](../.github/workflows/ci_pipeline.yml) y opera de forma desatendida ante eventos de Git:
 
 ```yaml
 name: PyTest CI Pipeline
@@ -71,6 +71,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: semana-2
 
     steps:
       - name: Descargar repositorio (Checkout)
@@ -81,6 +84,7 @@ jobs:
         with:
           python-version: '3.11'
           cache: 'pip'
+          cache-dependency-path: 'semana-2/requirements.txt'
 
       - name: Instalar dependencias
         run: |
